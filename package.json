@@ -1,0 +1,19 @@
+{
+  "name": "scroodge-mchack",
+  "version": "1.0.0",
+  "description": "scroodge-mchack backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasDestiny/Scroodge-McHack.git"
+  },
+  "author": "JohnSamuel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jasDestiny/Scroodge-McHack/issues"
+  },
+  "homepage": "https://github.com/jasDestiny/Scroodge-McHack#readme"
+}
