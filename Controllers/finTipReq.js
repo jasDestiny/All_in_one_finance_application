@@ -11,4 +11,5 @@ module.exports=async (req, res)=>{
     else{
         res.send("Invalid Token");
     }
+    mongoose.connection.close();
 };
