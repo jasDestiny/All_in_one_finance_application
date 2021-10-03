@@ -1,0 +1,2 @@
+let smsapi="yuYqRUK5ZpTSA9tj8fvX4o37HFkehG2x6rsWmVlgIcLMdDbOnivIE8CVmkLhGdObjl6HQK3ficwnPx49";
+module.exports.key=smsapi;

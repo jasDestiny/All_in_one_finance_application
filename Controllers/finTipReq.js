@@ -1,15 +1,14 @@
-const axios = require('axios')
+const data = require('../src/InvestmentTips.json')
+const mongoose=require("mongoose");
+const TokenData=require("../models/Tokens");
+const bodyParser = require('body-parser');
 
-module.exports=(req, res)=>{
-axios
-  .post('https://whatever.com/todos', {
-    todo: 'Buy the milk'
-  })
-  .then(res => {
-    console.log(`statusCode: ${res.status}`)
-    console.log(res)
-  })
-  .catch(error => {
-    console.error(error)
-  })
-}
+module.exports=async (req, res)=>{
+    const connection=await mongoose.connect("mongodb+srv://JohnSamuel:jas@cluster0.sxjym.mongodb.net/AuthTokens?retryWrites=true&w=majority");
+    let x=await TokenData.findOne({TokenId:req.body.tokenval, UserId:req.body.pno})
+    if(x)
+        res.json(data);
+    else{
+        res.send("Invalid Token");
+    }
+};
