@@ -3,7 +3,7 @@ const OTPmodel= require("../models/OTP");
 const mongoose= require("mongoose");
 const sms=require("fast-two-sms");
 const key=require('../config/smsapi');
-const createAccount=requre("../Controllers/simulator");
+const createAccount=require("../Controllers/simulator");
 
 module.exports=async (req, res)=>{
     const pno=req.body.pno;

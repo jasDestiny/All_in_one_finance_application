@@ -62,7 +62,7 @@ module.exports= async (pno, panno)=>{
                 "TransactionType":faker.finance.transactionType(),
                 "TransactionAmount":faker.finance.amount()
             });
-            console.log(transactions[String(j)]);
+            //console.log(transactions[String(j)]);
         }
         accounts.push({
             "AccountId":accName,
@@ -72,7 +72,7 @@ module.exports= async (pno, panno)=>{
         });
     }
 
-    console.log(accounts);
+    //console.log(accounts);
     const connection=await mongoose.connect("mongodb+srv://JohnSamuel:jas@cluster0.sxjym.mongodb.net/UserData?retryWrites=true&w=majority");
     
     await new UserAccount({
@@ -94,5 +94,3 @@ module.exports= async (pno, panno)=>{
     mongoose.connection.close();
     return name;
 }
-
-console.log(module.exports());
