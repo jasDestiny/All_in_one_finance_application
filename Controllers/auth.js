@@ -12,7 +12,7 @@ module.exports=async (req, res)=>{
     console.log(pno, pan, otp);
     let response="OTP sent successfully"
     await (async ()=>{
-        const connector = mongoose.connect("mongodb+srv://JohnSamuel:jas@cluster0.sxjym.mongodb.net/OTP?retryWrites=true&w=majority");
+        const connector = mongoose.connect("mongodb+srv://JohnSamuel:jas@cluster0.sxjym.mongodb.net/UserData?retryWrites=true&w=majority");
         const x=await OTPmodel.findOne({UserId:pno});
         if(x!==null){
             await OTPmodel.findOneAndUpdate({UserId:pno}, {OTP:otp})

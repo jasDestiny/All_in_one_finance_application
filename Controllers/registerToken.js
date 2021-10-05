@@ -1,7 +1,7 @@
 const mongoose= require("mongoose");
 const TokenData=require("../models/Tokens");
 let fn= async (pno, token)=>{
-    const connection= await mongoose.connect("mongodb+srv://JohnSamuel:jas@cluster0.sxjym.mongodb.net/AuthTokens?retryWrites=true&w=majority");
+    const connection= await mongoose.connect("mongodb+srv://JohnSamuel:jas@cluster0.sxjym.mongodb.net/UserData?retryWrites=true&w=majority");
     let timeval= String(parseInt(new Date().getTime()/10000));
     const x=await TokenData.findOne({UserId:pno});
         if(x!==null){

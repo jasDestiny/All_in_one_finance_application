@@ -1,10 +1,13 @@
 const mongoose=require("mongoose");
 const TokenData=require("../models/Tokens");
 const bodyParser = require('body-parser');
+const validator=require("../Controllers/validator");
 var axios = require("axios").default;
+
 module.exports=async (req, res)=>{
-    const connection=await mongoose.connect("mongodb+srv://JohnSamuel:jas@cluster0.sxjym.mongodb.net/AuthTokens?retryWrites=true&w=majority");
-    let x=await TokenData.findOne({TokenId:req.body.tokenval, UserId:req.body.pno})
+    const connection=await mongoose.connect("mongodb+srv://JohnSamuel:jas@cluster0.sxjym.mongodb.net/UserData?retryWrites=true&w=majority");
+    console.log(req.body.pno+" "+req.body.tokenval);
+    let x=await validator(req.body.pno, req.body.tokenval)
     if(x){
         let obj={
             "data": "1,1,1,0,0,4283,3000.0,172.0,84.0,1.0,0"
