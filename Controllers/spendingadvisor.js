@@ -1,7 +1,7 @@
 const mongoose=require("mongoose");
 const TokenData=require("../models/Tokens");
 const bodyParser = require('body-parser');
-const validator=require("../Controllers/validator");
+const validator=require("./validator");
 var axios = require("axios").default;
 
 module.exports=async (req, res)=>{
@@ -9,8 +9,8 @@ module.exports=async (req, res)=>{
     console.log(req.body.pno+" "+req.body.tokenval);
     let x=await validator(req.body.pno, req.body.tokenval);
 
-    if(x===null){
-        res.send("Invalid token");
+    if(!x){
+        res.send(require("./badRequest"));
     }
-    
+    res.send("valid");
 };

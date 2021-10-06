@@ -28,7 +28,7 @@ module.exports=async (req, res)=>{
         });
 
     }
-    else{
-        res.send("Invalid Token");
-    }
+    else
+        res.send(require("./badRequest"));
+    
 };

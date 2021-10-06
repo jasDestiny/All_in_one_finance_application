@@ -1,6 +1,6 @@
 const mongoose=require("mongoose");
 const OTPmodel= require("../models/OTP");
-const regToken=require("../Controllers/registerToken");
+const regToken=require("./registerToken");
 
 module.exports= async (req, res)=>{
     const connector = await mongoose.connect("mongodb+srv://JohnSamuel:jas@cluster0.sxjym.mongodb.net/UserData?retryWrites=true&w=majority");
@@ -13,6 +13,6 @@ module.exports= async (req, res)=>{
         res.send(tokenval);
     }
     else{
-        res.send("Invalid OTP")
+        res.send(require("./badRequest"));
     }
 }

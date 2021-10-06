@@ -1,11 +1,11 @@
-const validator=require("../Controllers/validator");
+const validator=require("./validator");
 module.exports=async (req, res)=>{
     let x= await validator(req.body.pno, req.body.tokenval);
-    if(x===null){
-        res.send("invalid token");
-    }
+    
+    if(!x)
+        res.send(require("./badRequest"));
+    
     let tips=[];
-
     let income=Number(req.body.income);
     let houseRentA=Number(req.body.houseRentA);
     let propInc=Number(req.body.propInc);
@@ -26,11 +26,11 @@ module.exports=async (req, res)=>{
 
     
     let gross=income-rent;
-    console.log("gross"+ gross);
+    //console.log("gross"+ gross);
     gross-=50000
     gross-=(houseRentA+proTax);
     gross=Math.max(0, gross)
-    console.log("gross"+ gross);
+    //console.log("gross"+ gross);
     if(houseRentA==0)
         tips.push("House rent allowance can help in reduction of gross amount");
     if(proTax==0)
@@ -59,7 +59,7 @@ module.exports=async (req, res)=>{
 
     //additives
     gross+=additives;
-    console.log("gross"+ gross);
+    //console.log("gross"+ gross);
     //deduction
     let deduction=(epf+ (0.2*insurance)+tuition+houseLoan+nsc)
     if(deduction<150000){
@@ -91,7 +91,7 @@ module.exports=async (req, res)=>{
     gross=Math.round(gross);
     gross=Math.max(0, gross);
 
-    console.log("gross"+gross)
+    //console.log("gross"+gross)
     //taxable gross income
 
     let tax=0;
@@ -106,9 +106,9 @@ module.exports=async (req, res)=>{
     
         
     tax+= (0.04*tax);
+    tax-=taxAlreadyPaid;
     
-    
-    console.log("tax"+ tax);
+    //console.log("tax"+ tax);
     res.send({
         tax:Math.round(tax),
         tips:tips

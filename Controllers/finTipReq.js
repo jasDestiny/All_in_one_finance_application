@@ -9,8 +9,8 @@ module.exports=async (req, res)=>{
     let x=await validator(req.body.pno, req.body.tokenval);
     if(x)
         res.json(data);
-    else{
-        res.send("Invalid Token");
-    }
+    else
+        res.send(require("./badRequest"));
+    
     mongoose.connection.close();
 };

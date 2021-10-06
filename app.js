@@ -10,8 +10,10 @@ app.use(bodyParser.json());
 app.get("/", require("./Controllers/home"));
 app.post("/query/fintip/", require("./Controllers/finTipReq")); // tokenval, pno
 app.post("/users/auth/", require("./Controllers/auth")); // pno, pan
-app.post("/users/auth/otp/", require("./Controllers/smsvalidator")); //pno, otp
+app.post("/users/auth/otp/", require("./Controllers/smsValidator")); //pno, otp
 app.post("/query/loan/", require("./Controllers/loan")); // tokenval, pno, amount, term
-app.post("/query/incometax/", require("./Controllers/IncomeTaxCalculator")); // income, propInc, fd, otherCapGain, (taxAlreadyPaid, hlinterest, houseRentA, proTax, savInt, nps, medInsFam, rent, (epf, nsc, tuition, houseLoan, insurance)), tokenval
+app.post("/query/incomeTax/", require("./Controllers/incomeTaxCalculator")); // income, propInc, fd, otherCapGain, (taxAlreadyPaid, hlinterest, houseRentA, proTax, savInt, nps, medInsFam, rent, (epf, nsc, tuition, houseLoan, insurance)), tokenval
+app.post("/query/spendingAdvisor/", require("./Controllers/spendingAdvisor")); 
 
-app.listen(port, require("./Controllers/serverstart"));
+
+app.listen(port, require("./Controllers/serverStart"));
