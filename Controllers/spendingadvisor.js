@@ -12,5 +12,5 @@ module.exports=async (req, res)=>{
     if(!x){
         res.send(require("./badRequest"));
     }
-    res.send("valid");
+    res.send({StatusCode:200, Status:"OK"});
 };
