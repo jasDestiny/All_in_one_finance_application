@@ -11,6 +11,4 @@ module.exports=async (req, res)=>{
         res.json(data);
     else
         res.send(require("./badRequest"));
-    
-    mongoose.connection.close();
 };

@@ -10,9 +10,7 @@ let fn= async (pno, token)=>{
         else{
             await new TokenData({TokenId:token, UserId:pno, TimeStamp:timeval}).save();
         }
-  
-    mongoose.connection.close();
-    
+    return;
 }
 
 module.exports=fn;

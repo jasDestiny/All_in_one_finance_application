@@ -23,6 +23,5 @@ module.exports=async (req, res)=>{
         }
         await sms.sendMessage({authorization : key , message : otp ,  numbers : [pno]});
     })();
-    mongoose.connection.close();
     res.json({"code":"200", "res":response});
 };

@@ -7,7 +7,7 @@ module.exports= async (req, res)=>{
     console.log(req.body.pno, req.body.otp);
     let x=await OTPmodel.findOne({UserId:req.body.pno, OTP: req.body.otp })
     let tokenval=String(100000+parseInt(Math.random()*899999))
-    mongoose.connection.close();
+    
     if(x){
         await regToken(req.body.pno, tokenval)
         res.send(tokenval);

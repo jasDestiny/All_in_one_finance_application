@@ -9,7 +9,7 @@ module.exports=async (pno, tokenId)=>{
     console.log(x);
     if(x!==null)
         response=true;
-    await mongoose.connection.close();
+    
     return response; 
 };
 

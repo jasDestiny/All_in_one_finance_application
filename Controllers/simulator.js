@@ -91,6 +91,6 @@ module.exports= async (pno, panno)=>{
         Married:Married,
         CombinedBalance: String(10000+Math.round(10000000*Math.random())),
         Accounts:accounts}).save();
-    mongoose.connection.close();
+    
     return name;
 }

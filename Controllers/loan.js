@@ -2,6 +2,7 @@ const mongoose=require("mongoose");
 const TokenData=require("../models/Tokens");
 const bodyParser = require('body-parser');
 const validator=require("../Controllers/validator");
+const UserAccount=require("../models/UserAccount");
 var axios = require("axios").default;
 
 module.exports=async (req, res)=>{
@@ -13,18 +14,27 @@ module.exports=async (req, res)=>{
             "data": "1,1,1,0,0,4283,3000.0,172.0,84.0,1.0,0"
         };
 
+        let y=await UserAccount.findOne({
+            UserId:req.body.pno
+        });
+
         var options = {
             method: 'POST',
             url: 'https://wreuj8ffa6.execute-api.ap-south-1.amazonaws.com/Version0/',
             data: {
-                "data": "1,1,1,0,0,4283,3000.0,172.0,84.0,1.0,0"
+                "data": y.Loan1+","+req.body.amount+","+req.body.term+","+y.Loan3
             }
         }
-
+        let prob=0;
         axios.request(options).then(function (response) {
             console.log(response.data);
+            prob=response.data
         }).catch(function (error) {
             console.error(error);
+        });
+
+        res.send({
+            probablity:prob
         });
 
     }
