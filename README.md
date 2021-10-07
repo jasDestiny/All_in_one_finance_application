@@ -34,5 +34,9 @@ Check app.js for all the endpoints and all attribute fields
 
 ### Screenshots
 <i>Postman Screenshots</i><br>
-<img src="http://i.imgur.com/OkBVuPg.png" width="400"> 
-<img src="http://i.imgur.com/ES3DuzI.png" width="450">
+<img src="https://ibb.co/tJDSYNg" width="500"> 
+<img src="" width="500">
+<img src="" width="500"> 
+<img src="" width="500">
+<img src="" width="500"> 
+<img src="" width="500">
