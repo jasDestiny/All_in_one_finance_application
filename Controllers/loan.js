@@ -29,13 +29,14 @@ module.exports=async (req, res)=>{
         axios.request(options).then(function (response) {
             console.log(response.data);
             prob=response.data
+            res.send({
+                probablity:prob*100
+            });
         }).catch(function (error) {
             console.error(error);
         });
 
-        res.send({
-            probablity:prob
-        });
+        
 
     }
     else

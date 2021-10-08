@@ -11,8 +11,10 @@ module.exports=async (req, res)=>{
   if(!x){
       res.send(require("./badRequest"));
   }
+ 
   let posts=[];
   for(i=0;i<urls.length;i++){
+    console.log(urls[i]);
       var options = {
           method: 'GET',
           url: 'https://reddit3.p.rapidapi.com/subreddit',

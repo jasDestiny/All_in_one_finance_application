@@ -8,6 +8,7 @@ const createAccount=require("../Controllers/simulator");
 module.exports=async (req, res)=>{
     const pno=req.body.pno;
     const pan=req.body.pan;
+    
     const otp= String(Math.floor(100000+(Math.random() * 899999)));
     console.log(pno, pan, otp);
     let response="OTP sent successfully"

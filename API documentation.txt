@@ -1,0 +1,41 @@
+HOME ROUTE
+GET: "/"
+
+AUTH
+POST: "/users/auth/"
+PARAMS: {pno, pan}
+
+AUTH OTP
+POST: "/users/auth/"
+PARAMS: {pno, otp}
+
+FINTIP ROUTE
+POST: "/query/fintip/"
+PARAMS: {pno, tokenval}
+
+LOAN 
+POST: "/query/loan/"
+PARAMS:{pno, tokenval}
+
+INCOME TAX
+POST: "/query/incomeTax/"
+PARAMS:{pno,tokenval,income,houseRentA,
+propInc,fd,otherCapGain,savInt,nps,medInsFam,
+rent,epf,nsc,tuition,houseLoan,insurance,hlinterest,
+proTax,taxAlreadyPaid}
+
+SPENING ADVISOR
+POST: "/query/spendingAdvisor/"
+PARAMS: {pno, tokenval, budget}
+
+REDDIT
+POST: "/query/data/reddit/"
+PARAMS:{pno, tokenval}
+
+P2P
+POST:"/query/credit/p2p/"
+PARAMS:{}
+
+VIRTUAL CREDITS
+POST:"/query/credit/virtualcredits/"
+PARAMS:{pno, tokenval}
