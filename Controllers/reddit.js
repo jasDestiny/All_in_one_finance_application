@@ -2,8 +2,7 @@ const mongoose= require("mongoose");
 const validator=require("./validator");
 var axios = require("axios").default;
  
-let urls=['https://www.reddit.com/r/wallstreetbets/top/']
- //, 'https://www.reddit.com/r/stocks/top', 'https://www.reddit.com/r/daytrading/top', 'https://www.reddit.com/r/IndiaInvestments/top'];
+let urls=['https://www.reddit.com/r/wallstreetbets/top/', 'https://www.reddit.com/r/stocks/top', 'https://www.reddit.com/r/daytrading/top', 'https://www.reddit.com/r/IndiaInvestments/top'];
 
 module.exports=async (req, res)=>{
   const connection=await mongoose.connect("mongodb+srv://JohnSamuel:jas@cluster0.sxjym.mongodb.net/UserData?retryWrites=true&w=majority");
